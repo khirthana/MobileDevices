@@ -3,4 +3,7 @@
     <string name="start_button">START</string>
     <string name="yes_button">YES</string>
     <string name="no_button">NO</string>
+    <string name="summary">Summary</string>
+    <string name="total_yes">Total YES: </string>
+    <string name="total_no">Total NO: </string>
 </resources>

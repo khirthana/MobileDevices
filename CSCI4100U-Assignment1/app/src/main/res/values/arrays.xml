@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <string-array name="questions">
-    <item> Question1: </item>
-    <item> Question2: </item>
-    <item> Question3: </item>
-    <item> Question4: </item>
-    <item> Question5: </item>
+    <item> Question1: Are you part of any clubs on campus? </item>
+    <item> Question2: Do you keep track of club events on campus? </item>
+    <item> Question3: Did you miss any of the events because you were unaware of them? </item>
+    <item> Question4: Do you use social media to keep updated with events on campus? </item>
+    <item> Question5: Did you attend any events after seeing posters on campus? </item>
 </string-array>
 
 

@@ -12,33 +12,33 @@
 
     <TextView
         android:text="Question: "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:id="@+id/questionTextView" />
+        android:id="@+id/questionText" />
 
     <Button
         android:text="@string/yes_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/questionTextView"
-        android:layout_toLeftOf="@+id/questionTextView"
-        android:layout_toStartOf="@+id/questionTextView"
-        android:layout_marginRight="26dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginTop="139dp"
         android:id="@+id/button2"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/questionText"
+        android:layout_alignStart="@+id/questionText"
+        android:layout_marginBottom="111dp"
         android:onClick="yesButton"/>
 
     <Button
         android:text="@string/no_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button2"
-        android:layout_toRightOf="@+id/questionTextView"
-        android:layout_toEndOf="@+id/questionTextView"
+        android:layout_alignTop="@+id/button2"
+        android:layout_alignRight="@+id/questionText"
+        android:layout_alignEnd="@+id/questionText"
         android:id="@+id/button3"
         android:onClick="noButton"/>
+
+
 </RelativeLayout>

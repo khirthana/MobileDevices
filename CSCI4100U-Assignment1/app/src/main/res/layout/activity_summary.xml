@@ -11,7 +11,7 @@
     tools:context="com.example.a100453865.csci4100u_assignment1.Summary">
 
     <TextView
-        android:text="Summary"
+        android:text="@string/summary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -20,5 +20,5 @@
         android:layout_marginLeft="134dp"
         android:layout_marginStart="134dp"
         android:layout_marginTop="40dp"
-        android:id="@+id/textView2" />
+        android:id="@+id/summaryText" />
 </RelativeLayout>
