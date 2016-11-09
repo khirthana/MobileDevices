@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../TravelLogger_Project_KhirthanaSubramanian_and_Jaina_Patel.iml" filepath="$PROJECT_DIR$/../TravelLogger_Project_KhirthanaSubramanian_and_Jaina_Patel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app.iml" filepath="$PROJECT_DIR$/app.iml" />
+    </modules>
+  </component>
+</project>
