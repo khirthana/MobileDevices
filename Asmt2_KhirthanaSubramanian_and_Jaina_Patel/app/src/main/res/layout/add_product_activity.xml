@@ -37,13 +37,13 @@
         android:layout_below="@+id/textView2"
         android:layout_alignParentStart="true"
         android:layout_marginTop="19dp"
-        android:id="@+id/editText" />
+        android:id="@+id/editName" />
 
     <TextView
         android:text="@string/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editText"
+        android:layout_below="@+id/editName"
         android:layout_alignParentStart="true"
         android:layout_marginTop="36dp"
         android:id="@+id/textView3" />
@@ -56,13 +56,13 @@
         android:ems="10"
         android:layout_centerVertical="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/editText2" />
+        android:id="@+id/editDesc" />
 
     <TextView
         android:text="@string/price_dollars"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editText2"
+        android:layout_below="@+id/editDesc"
         android:layout_alignParentStart="true"
         android:layout_marginTop="28dp"
         android:id="@+id/textView4" />
@@ -74,9 +74,9 @@
         android:text=""
         android:ems="10"
         android:layout_below="@+id/textView4"
-        android:layout_alignEnd="@+id/editText2"
+        android:layout_alignEnd="@+id/editDesc"
         android:layout_marginTop="27dp"
-        android:id="@+id/editText3" />
+        android:id="@+id/editPrice" />
 
     <Button
         android:text="@string/cancel"
