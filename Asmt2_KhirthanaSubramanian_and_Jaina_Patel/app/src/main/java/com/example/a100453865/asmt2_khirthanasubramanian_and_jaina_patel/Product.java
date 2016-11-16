@@ -20,6 +20,26 @@ public class Product {
         this.price = price;
     }
 
+    void setProduct_id(int id){this.product_id=id;}
 
+    void setProduct_name(String name){this.product_name=name;}
+
+    void setProduct_desc(String desc){this.product_desc=desc;}
+
+    void setPrice(double product_price){this.price=product_price;}
+
+    public int getProduct_id(){return product_id;}
+
+    public String getProduct_name() {
+        return product_name;
+    }
+
+    public String getProduct_desc() {
+        return product_desc;
+    }
+
+    public double getPrice() {
+        return price;
+    }
 }
 
