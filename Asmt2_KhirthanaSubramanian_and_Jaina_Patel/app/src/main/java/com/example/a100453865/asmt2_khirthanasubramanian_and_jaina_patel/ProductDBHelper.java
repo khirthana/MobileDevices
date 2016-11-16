@@ -41,10 +41,10 @@ public class ProductDBHelper extends SQLiteOpenHelper {
     }
     public void onCreate (SQLiteDatabase db){
         String CREATE_PRODUCT_TABLE = "CREATE TABLE" + TABLE_PRODUCT_DETAIL + "("
-                + KEY_id + "INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + KEY_id + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + KEY_name + " TEXT,"
                 + KEY_desc + " TEXT,"
-                + KEY_price + " double" + ")";
+                + KEY_price + " REAL" + ")";
 
         db.execSQL(CREATE_PRODUCT_TABLE);
     }
@@ -55,7 +55,7 @@ public class ProductDBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean addData (String name, String desc, String price){
+    public boolean addData (String name, String desc, double price){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(KEY_name,name);

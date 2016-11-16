@@ -1,6 +1,8 @@
 package com.example.a100453865.asmt2_khirthanasubramanian_and_jaina_patel;
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,7 +15,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class BrowseProductsActivity extends AppCompatActivity {
 
@@ -27,6 +36,8 @@ public class BrowseProductsActivity extends AppCompatActivity {
 
     Button button_prev;
     Button button_next;
+
+    Context context2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +56,16 @@ public class BrowseProductsActivity extends AppCompatActivity {
 
         EditText editPriceBitcoin= (EditText) findViewById(R.id.editPriceBitcoin);
         editPriceBitcoin.setEnabled(false);
+
+        // use the query function in the database helper to find all products
+        productdb= new ProductDBHelper(this);
+
+        //insert test data
+        productdb.addData("Dell Laptop", "For home and home office",350.00);
+        productdb.addData("Acer Laptop","Most compact laptop", 300.00);
+
+        // load the test data into a local array list
+        allProducts= productdb.getAllData();
 
         //If there are no earlier products, “Previous” button is disabled
         if(product_position==0) {
@@ -65,15 +86,8 @@ public class BrowseProductsActivity extends AppCompatActivity {
             button_next.setEnabled(true);
         }
 
-        // use the query function in the database helper to find all products
-        productdb= new ProductDBHelper(this);
-
-        // load the test data into a local array list
-        allProducts= productdb.getAllData();
-
         //display first product
         getProduct(0);
-
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -120,13 +134,54 @@ public class BrowseProductsActivity extends AppCompatActivity {
         BTCField.setText(String.valueOf(priceBTC));
     }
 
-    public float convertToBitCoin(double CAD_price){
-        //https://blockchain.info/tobtc?currency=CAD&value=49.99
+    public float convertToBitCoin(double CAD_price) {
 
         float BTC_price=0;
-
-
+        String value;
+        try {
+           value= new GetBTCvalue(this).execute("").get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
         return BTC_price;
+    }
+
+    private class GetBTCvalue extends AsyncTask<String, Void, String> {
+        String BTC_url = "https://blockchain.info/tobtc?currency=CAD&value=49.99";
+        private Exception exception = null;
+
+        public GetBTCvalue(Context context) {
+            context2 = context;
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            String line = null;
+
+            try {
+                URL url = new URL(BTC_url);
+                HttpURLConnection conn;
+                conn = (HttpURLConnection) url.openConnection();
+                int result = conn.getResponseCode();
+
+                if (result == HttpURLConnection.HTTP_OK) {
+                    InputStream in = conn.getInputStream();
+                    BufferedReader bf = new BufferedReader(new InputStreamReader(in));
+                    line = bf.readLine();
+                }
+
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+
+            return line;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+        }
     }
 
 
