@@ -69,14 +69,38 @@ public class ProductDBHelper extends SQLiteOpenHelper {
             return true;
     }
 
-    public Cursor getAllData (){
+    public List<Product> getAllData (){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("Select * From "+ TABLE_PRODUCT_DETAIL, null);
-        return res;
+        //Cursor res = db.rawQuery("Select * From "+ TABLE_PRODUCT_DETAIL, null);
+        //return res;
+
+        ArrayList<Product> results = new ArrayList<>();
+
+        String[] columns = new String[] { KEY_id, KEY_name,KEY_desc,KEY_price};
+        String where = "";  // all grades
+        String[] whereArgs = new String[] {};
+        String groupBy = "";  // no grouping
+        String groupArgs = "";
+        String orderBy =KEY_id;
+
+        Cursor cursor = db.query("product", columns, where, whereArgs,groupBy, groupArgs, orderBy);
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast()) {
+            int product_id=cursor.getInt(0);
+            String product_name= cursor.getString(1);
+            String product_desc=cursor.getString(2);
+            double price=cursor.getDouble(3);
+
+            results.add(new Product(product_id,product_name,product_desc,price));
+
+            cursor.moveToNext();
+        }
+
+        return results;
     }
 
-    public Integer deleteData (String id){
+    public Integer deleteData (int id){
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(TABLE_PRODUCT_DETAIL, "ID = ?", new String [] {id});
+        return db.delete(TABLE_PRODUCT_DETAIL, "id = ?", new String [] {""+id});
     }
 }
