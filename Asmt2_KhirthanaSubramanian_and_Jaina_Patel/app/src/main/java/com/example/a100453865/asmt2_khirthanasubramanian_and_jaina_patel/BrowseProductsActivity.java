@@ -61,8 +61,8 @@ public class BrowseProductsActivity extends AppCompatActivity {
         productdb= new ProductDBHelper(this);
 
         //insert test data
-        productdb.addData("Dell Laptop", "For home and home office",350.00);
-        productdb.addData("Acer Laptop","Most compact laptop", 300.00);
+        productdb.addData("Dell Laptop", "For home and home office","350.00");
+        productdb.addData("Acer Laptop","Most compact laptop", "300.00");
 
         // load the test data into a local array list
         allProducts= productdb.getAllData();

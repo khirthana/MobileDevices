@@ -55,18 +55,27 @@ public class ProductDBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean addData (String name, String desc, double price){
+    public Product addData (String name, String desc, String price){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(KEY_name,name);
         contentValues.put(KEY_desc,desc);
         contentValues.put(KEY_price, price);
-        long result = db.insert (TABLE_PRODUCT_DETAIL, null, contentValues);
 
+
+        long id = db.insert("TABLE_PRODUCT_DETAIL", null, contentValues);
+
+        // create a new product object
+        Product product = new Product((int) id, name,desc,Double.parseDouble(price));
+        return product;
+
+        /*
+        long result = db.insert (TABLE_PRODUCT_DETAIL, null, contentValues);
         if (result == 1)
             return false;
         else
             return true;
+        */
     }
 
     public List<Product> getAllData (){
@@ -77,9 +86,9 @@ public class ProductDBHelper extends SQLiteOpenHelper {
         ArrayList<Product> results = new ArrayList<>();
 
         String[] columns = new String[] { KEY_id, KEY_name,KEY_desc,KEY_price};
-        String where = "";  // all grades
+        String where = "";
         String[] whereArgs = new String[] {};
-        String groupBy = "";  // no grouping
+        String groupBy = "";
         String groupArgs = "";
         String orderBy =KEY_id;
 
