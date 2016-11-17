@@ -27,7 +27,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -42,12 +44,8 @@ public class BrowseProductsActivity extends AppCompatActivity {
 
     Product current;
 
-    Context context2;
-
     Button button_prev;
     Button button_next;
-
-    double price_CAD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +71,7 @@ public class BrowseProductsActivity extends AppCompatActivity {
         //insert test data
         productdb.addData("Dell Laptop", "For home and home office","350.00");
         productdb.addData("Acer Laptop","Most compact laptop", "300.00");
+        productdb.addData("HP Laptop","High performanced", "400.00");
 
         // load the test data into a local array list
         allProducts= productdb.getAllData();
@@ -163,43 +162,41 @@ public class BrowseProductsActivity extends AppCompatActivity {
         BTCField.setText(String.valueOf(priceBTC));
     }
 
-    public float convertToBitCoin(double CAD_price) {
+    public float convertToBitCoin(double CAD_price)  {
 
         float BTC_price=0;
-        String value="";
+        String value="0";
 
-        new GetBTCvalue(this).execute("");
-        /*
-        try {
-           value= new GetBTCvalue(this).execute("").get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
+        //CAD price is converted to BTC
+        new GetBTCvalue(this).execute("https://blockchain.info/tobtc?currency=CAD&value="+CAD_price);
 
-        BTC_price=((float)CAD_price)*(Float.parseFloat(value));
-        */
         return BTC_price;
     }
-       public class GetBTCvalue extends AsyncTask<String, Void, String> {
-        String BTC_url = "https://blockchain.info/tobtc?currency=CAD&value=49.99";
+
+
+    public class GetBTCvalue extends AsyncTask<String, Void, String> {
         private Exception exception = null;
 
         private EditText amount = null;
-       
+
+        private Context context2;
+
+       public GetBTCvalue(Context context) {
+           context2 = context;
+       }
 
         @Override
         protected String doInBackground(String... params) {
             String line;
-            
+
             String result="";
             try {
-                URL url = new URL(BTC_url + params[0]);
+                //value converted is read
+
+                URL url = new URL(params[0]);
 
                 BufferedReader r = new BufferedReader(new InputStreamReader(url.openStream()));
                 StringBuilder t = new StringBuilder();
-
 
                 BufferedReader bf = new BufferedReader(new InputStreamReader(url.openStream()));
                 StringBuilder out = new StringBuilder();
@@ -224,14 +221,7 @@ public class BrowseProductsActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             this.amount.setText(result);
         }
-        
-        protected void setAmount (EditText amount){
-            this.amount = amount;
-        }
     }
-
-   
-
 
     //when prev button is clicked, calls showProduct() with the previous product
     public void prevProduct(View view){
