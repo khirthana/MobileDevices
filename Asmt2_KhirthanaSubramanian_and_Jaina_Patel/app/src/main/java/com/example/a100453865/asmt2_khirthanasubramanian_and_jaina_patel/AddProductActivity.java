@@ -14,33 +14,34 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class AddProductActivity extends AppCompatActivity {
 
-    ProductDBHelper dtbs;
-    EditText eName, eDesc, ePrice;
-    Button btnAdd;
+ public class AddProductActivity extends AppCompatActivity {
+
+     ProductDBHelper dtbs;
+     EditText eName, eDesc, ePrice;
+     Button btnAdd;
 
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_product_activity);
-        dtbs = new ProductDBHelper(this);
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.add_product_activity);
+         dtbs = new ProductDBHelper(this);
 
-        eName = (EditText) findViewById(R.id.editName);
-        eDesc = (EditText) findViewById(R.id.editDesc);
-        ePrice = (EditText) findViewById(R.id.editPrice);
-        btnAdd = (Button) findViewById(R.id.button);
+         eName = (EditText) findViewById(R.id.editName);
+         eDesc = (EditText) findViewById(R.id.editDesc);
+         ePrice = (EditText) findViewById(R.id.editPrice);
+         btnAdd = (Button) findViewById(R.id.button);
 
-        AddData();
-    }
+         AddData();
+     }
 
-    public void AddData () {
-        btnAdd.setOnClickListener(
-                new View.OnClickListener(){
-                    public void onClick(View v) {
-                        dtbs.addData(eName.getText().toString(), eDesc.getText().toString(), ePrice.getText().toString());
-                        Toast.makeText(AddProductActivity.this, "Data Added", Toast.LENGTH_LONG).show();
+     public void AddData () {
+         btnAdd.setOnClickListener(
+                 new View.OnClickListener(){
+                     public void onClick(View v) {
+                         dtbs.addData(eName.getText().toString(), eDesc.getText().toString(), ePrice.getText().toString());
+                         Toast.makeText(AddProductActivity.this, "Data Added", Toast.LENGTH_LONG).show();
                         /*
                         boolean isAdded = dtbs.addData(eName.getText().toString(), eDesc.getText().toString(), Double.parseDouble(ePrice.getText().toString()));
 
@@ -50,10 +51,14 @@ public class AddProductActivity extends AppCompatActivity {
                         else
                             Toast.makeText(AddProductActivity.this, "Data not added", Toast.LENGTH_LONG).show();
                         */
-                    }
-                }
-        );
-    }
 
-}
+                     }
+                 }
+         );
+     }
+
+
+
+
+ }
 
