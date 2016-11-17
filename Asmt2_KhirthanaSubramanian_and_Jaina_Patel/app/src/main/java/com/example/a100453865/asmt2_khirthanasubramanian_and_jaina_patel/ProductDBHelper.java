@@ -5,13 +5,9 @@
 -name (string)
 -description (string)
 -price (decimal)
-
 o This class will have a function for querying the database, finding all products
-
 o This class will have a function for deleting a product from the database
-
 o This class will have a function for inserting a new product into the database
-
  */
 
 package com.example.a100453865.asmt2_khirthanasubramanian_and_jaina_patel;
@@ -40,7 +36,7 @@ public class ProductDBHelper extends SQLiteOpenHelper {
 
     }
     public void onCreate (SQLiteDatabase db){
-        String CREATE_PRODUCT_TABLE = "CREATE TABLE" + TABLE_PRODUCT_DETAIL + "("
+        String CREATE_PRODUCT_TABLE = "CREATE TABLE " + TABLE_PRODUCT_DETAIL + "("
                 + KEY_id + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + KEY_name + " TEXT,"
                 + KEY_desc + " TEXT,"
@@ -55,29 +51,26 @@ public class ProductDBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public Product addData (String name, String desc, String price){
+    public boolean addData (String name, String desc, String price){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(KEY_name,name);
         contentValues.put(KEY_desc,desc);
         contentValues.put(KEY_price, price);
-
-
-        long id = db.insert("TABLE_PRODUCT_DETAIL", null, contentValues);
-
-        // create a new product object
-        Product product = new Product((int) id, name,desc,Double.parseDouble(price));
-        return product;
-
-        /*
         long result = db.insert (TABLE_PRODUCT_DETAIL, null, contentValues);
+
         if (result == 1)
             return false;
         else
             return true;
-        */
     }
-
+/*
+    public Cursor getAllData (){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("Select * From "+ TABLE_PRODUCT_DETAIL, null);
+        return res;
+    }
+*/
     public List<Product> getAllData (){
         SQLiteDatabase db = this.getWritableDatabase();
         //Cursor res = db.rawQuery("Select * From "+ TABLE_PRODUCT_DETAIL, null);
@@ -92,7 +85,7 @@ public class ProductDBHelper extends SQLiteOpenHelper {
         String groupArgs = "";
         String orderBy =KEY_id;
 
-        Cursor cursor = db.query("product", columns, where, whereArgs,groupBy, groupArgs, orderBy);
+        Cursor cursor = db.query(TABLE_PRODUCT_DETAIL, columns, where, whereArgs,groupBy, groupArgs, orderBy);
         cursor.moveToFirst();
         while(!cursor.isAfterLast()) {
             int product_id=cursor.getInt(0);
@@ -107,9 +100,8 @@ public class ProductDBHelper extends SQLiteOpenHelper {
 
         return results;
     }
-
-    public Integer deleteData (int id){
+    public Integer deleteData (String id){
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(TABLE_PRODUCT_DETAIL, "id = ?", new String [] {""+id});
+        return db.delete(TABLE_PRODUCT_DETAIL, "ID = ?", new String [] {id});
     }
 }

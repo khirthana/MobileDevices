@@ -34,9 +34,6 @@ public class BrowseProductsActivity extends AppCompatActivity {
 
     Product current;
 
-    Button button_prev;
-    Button button_next;
-
     Context context2;
 
     @Override
@@ -67,9 +64,11 @@ public class BrowseProductsActivity extends AppCompatActivity {
         // load the test data into a local array list
         allProducts= productdb.getAllData();
 
+        Button button_prev=(Button) findViewById(R.id.button_prev);
+        Button button_next= (Button) findViewById(R.id.button_next);
+
         //If there are no earlier products, “Previous” button is disabled
         if(product_position==0) {
-            button_prev= (Button) findViewById(R.id.button_prev);;
             button_prev.setEnabled(false);
         }
         else{
@@ -79,7 +78,6 @@ public class BrowseProductsActivity extends AppCompatActivity {
 
         //If there are no further products, “Next” button is disabled
         if(product_position== allProducts.size()-1) {
-            button_next= (Button) findViewById(R.id.button_next);;
             button_next.setEnabled(false);
         }
         else{
@@ -108,7 +106,7 @@ public class BrowseProductsActivity extends AppCompatActivity {
         //call showProduct() to display product information
         product_position=position;
 
-        while (product_position < allProducts.size()&&product_position>=0) {
+       if(product_position < allProducts.size()&&product_position>=0) {
             current = allProducts.get(product_position);
             showProduct(current);
         }
@@ -137,7 +135,9 @@ public class BrowseProductsActivity extends AppCompatActivity {
     public float convertToBitCoin(double CAD_price) {
 
         float BTC_price=0;
-        String value;
+        String value="";
+
+
         try {
            value= new GetBTCvalue(this).execute("").get();
         } catch (InterruptedException e) {
@@ -145,6 +145,8 @@ public class BrowseProductsActivity extends AppCompatActivity {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
+
+        BTC_price=((float)CAD_price)*(Float.parseFloat(value));
         return BTC_price;
     }
 
@@ -158,8 +160,8 @@ public class BrowseProductsActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... params) {
-            String line = null;
-
+            String line;
+            String values = "";
             try {
                 URL url = new URL(BTC_url);
                 HttpURLConnection conn;
@@ -169,14 +171,17 @@ public class BrowseProductsActivity extends AppCompatActivity {
                 if (result == HttpURLConnection.HTTP_OK) {
                     InputStream in = conn.getInputStream();
                     BufferedReader bf = new BufferedReader(new InputStreamReader(in));
-                    line = bf.readLine();
+
+                    while ((line = bf.readLine()) != null) {
+                        values += line;
+                    }
                 }
 
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
 
-            return line;
+            return values;
         }
 
         @Override
@@ -203,7 +208,7 @@ public class BrowseProductsActivity extends AppCompatActivity {
     //when delete button is clicked, calls the database helper function to delete the product using product id
     public void deleteProduct(View view){
         //delete current product
-        productdb.deleteData(current.getProduct_id());
+        productdb.deleteData(String.valueOf(current.getProduct_id()));
 
         //display toast message when product deleted
         Toast.makeText(BrowseProductsActivity.this, "Data Deleted", Toast.LENGTH_LONG).show();
