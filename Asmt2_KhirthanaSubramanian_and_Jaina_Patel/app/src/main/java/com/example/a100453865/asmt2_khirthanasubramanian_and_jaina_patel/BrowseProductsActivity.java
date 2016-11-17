@@ -125,7 +125,7 @@ public class BrowseProductsActivity extends AppCompatActivity {
         priceField.setText(String.valueOf(p.getPrice()));
 
         //The price is submitted to a web service to find the corresponding price in BitCoin
-        priceBTC=convertToBitCoin(p.getPrice());
+        //priceBTC=convertToBitCoin(p.getPrice());
 
         //The BitCoin price is displayed in the corresponding text field
         EditText BTCField = (EditText)findViewById(R.id.editPriceBitcoin);
