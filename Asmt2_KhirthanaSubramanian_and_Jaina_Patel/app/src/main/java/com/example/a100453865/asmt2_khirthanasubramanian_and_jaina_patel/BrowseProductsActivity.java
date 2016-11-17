@@ -156,8 +156,7 @@ public class BrowseProductsActivity extends AppCompatActivity {
         BTC_price=((float)CAD_price)*(Float.parseFloat(value));
         return BTC_price;
     }
-
-    private class GetBTCvalue extends AsyncTask<String, Void, String> {
+    public class GetBTCvalue extends AsyncTask<String, Void, String> {
         String BTC_url = "https://blockchain.info/tobtc?currency=CAD&value=49.99";
         private Exception exception = null;
 
@@ -168,34 +167,39 @@ public class BrowseProductsActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
             String line;
-            String values = "";
+            String result = NOT_AVAILABLE_MSG;
             try {
-                URL url = new URL(BTC_url);
-                HttpURLConnection conn;
-                conn = (HttpURLConnection) url.openConnection();
-                int result = conn.getResponseCode();
+                URL url = new URL(BTC_url + params[0]);
+                
+                BufferedReader r = new BufferedReader(new InputStreamReader(url.openStream()));
+                StringBuilder t = new StringBuiler();
+                
 
-                if (result == HttpURLConnection.HTTP_OK) {
-                    InputStream in = conn.getInputStream();
-                    BufferedReader bf = new BufferedReader(new InputStreamReader(in));
+                    BufferedReader bf = new BufferedReader(new InputStreamReader(url.openStream()));
+                    StringBuilder out = new StringBuilder();
+                    
 
                     while ((line = bf.readLine()) != null) {
-                        values += line;
+                        out.append(line);
                     }
-                }
+                
+                result = out.toString();
+                bf.close();
+                
 
-            } catch (IOException ex) {
+            } catch (Exception ex) {
                 ex.printStackTrace();
             }
 
-            return values;
+            return result;
         }
 
         @Override
         protected void onPostExecute(String result) {
+            this.amount.setText(result);
         }
     }
-
+   
 
     //when prev button is clicked, calls showProduct() with the previous product
     public void prevProduct(View view){
