@@ -42,15 +42,12 @@ import android.widget.Toast;
                      public void onClick(View v) {
                          dtbs.addData(eName.getText().toString(), eDesc.getText().toString(), ePrice.getText().toString());
                          Toast.makeText(AddProductActivity.this, "Data Added", Toast.LENGTH_LONG).show();
-                        /*
-                        boolean isAdded = dtbs.addData(eName.getText().toString(), eDesc.getText().toString(), Double.parseDouble(ePrice.getText().toString()));
-
-
-                        if (isAdded == true)
-                            Toast.makeText(AddProductActivity.this, "Data Added", Toast.LENGTH_LONG).show();
-                        else
-                            Toast.makeText(AddProductActivity.this, "Data not added", Toast.LENGTH_LONG).show();
-                        */
+                        
+                      
+                         eName.getText().clear();
+                         eDesc.getText().clear();
+                         ePrice.getText().clear();
+                         finish();
 
                      }
                  }
