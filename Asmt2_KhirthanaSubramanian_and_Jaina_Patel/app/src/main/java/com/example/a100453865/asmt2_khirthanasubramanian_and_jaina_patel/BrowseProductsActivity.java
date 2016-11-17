@@ -132,7 +132,7 @@ public class BrowseProductsActivity extends AppCompatActivity {
 
 
         //If there are no further products, “Next” button is disabled
-        if(product_position== allProducts.size()-2) {
+        if(product_position== allProducts.size()-1) {
             button_next.setEnabled(false);
         }
         else{

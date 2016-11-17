@@ -69,11 +69,15 @@
       <file leaf-file-name="BrowseProductsActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/a100453865/asmt2_khirthanasubramanian_and_jaina_patel/BrowseProductsActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="120" column="56" selection-start-line="120" selection-start-column="56" selection-end-line="120" selection-end-column="56" />
+            <state relative-caret-position="242">
+              <caret line="134" column="50" selection-start-line="134" selection-start-column="50" selection-end-line="134" selection-end-column="50" />
               <folding>
-                <element signature="e#0#8070#0" expanded="true" />
+                <element signature="e#0#8227#0" expanded="true" />
                 <element signature="imports" expanded="true" />
+                <element signature="e#5846#5847#0" expanded="true" />
+                <element signature="e#5888#5889#0" expanded="true" />
+                <element signature="e#6911#6912#0" expanded="true" />
+                <element signature="e#6962#6963#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1830,8 +1834,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/a100453865/asmt2_khirthanasubramanian_and_jaina_patel/Product.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/a100453865/asmt2_khirthanasubramanian_and_jaina_patel/ProductDBHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/a100453865/asmt2_khirthanasubramanian_and_jaina_patel/AddProductActivity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/a100453865/asmt2_khirthanasubramanian_and_jaina_patel/BrowseProductsActivity.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/browse_products_activity.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/a100453865/asmt2_khirthanasubramanian_and_jaina_patel/BrowseProductsActivity.java" />
       </list>
     </option>
   </component>
@@ -2302,11 +2306,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/a100453865/asmt2_khirthanasubramanian_and_jaina_patel/BrowseProductsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="120" column="56" selection-start-line="120" selection-start-column="56" selection-end-line="120" selection-end-column="56" />
+        <state relative-caret-position="242">
+          <caret line="134" column="50" selection-start-line="134" selection-start-column="50" selection-end-line="134" selection-end-column="50" />
           <folding>
-            <element signature="e#0#8070#0" expanded="true" />
+            <element signature="e#0#8227#0" expanded="true" />
             <element signature="imports" expanded="true" />
+            <element signature="e#5846#5847#0" expanded="true" />
+            <element signature="e#5888#5889#0" expanded="true" />
+            <element signature="e#6911#6912#0" expanded="true" />
+            <element signature="e#6962#6963#0" expanded="true" />
           </folding>
         </state>
       </provider>
