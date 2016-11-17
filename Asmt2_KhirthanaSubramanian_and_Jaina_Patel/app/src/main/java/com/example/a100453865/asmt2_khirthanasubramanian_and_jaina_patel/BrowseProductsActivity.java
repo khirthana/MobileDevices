@@ -3,7 +3,7 @@
  *     main activity
  *
  * Team Members: Khirthana Subramanian(100453865) and Jaina Patel(100523188)
- * 
+ *
  */
 package com.example.a100453865.asmt2_khirthanasubramanian_and_jaina_patel;
 
@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -42,6 +43,9 @@ public class BrowseProductsActivity extends AppCompatActivity {
     Product current;
 
     Context context2;
+
+    Button button_prev;
+    Button button_next;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,8 +75,8 @@ public class BrowseProductsActivity extends AppCompatActivity {
         // load the test data into a local array list
         allProducts= productdb.getAllData();
 
-        Button button_prev=(Button) findViewById(R.id.button_prev);
-        Button button_next= (Button) findViewById(R.id.button_next);
+        button_prev=(Button) findViewById(R.id.button_prev);
+        button_next= (Button) findViewById(R.id.button_next);
 
         //If there are no earlier products, “Previous” button is disabled
         if(product_position==0) {
@@ -116,6 +120,23 @@ public class BrowseProductsActivity extends AppCompatActivity {
        if(product_position < allProducts.size()&&product_position>=0) {
             current = allProducts.get(product_position);
             showProduct(current);
+        }
+
+        //If there are no earlier products, “Previous” button is disabled
+        if(product_position==0) {
+            button_prev.setEnabled(false);
+        }
+        else{
+            button_prev.setEnabled(true);
+        }
+
+
+        //If there are no further products, “Next” button is disabled
+        if(product_position== allProducts.size()-2) {
+            button_next.setEnabled(false);
+        }
+        else{
+            button_next.setEnabled(true);
         }
     }
 
@@ -204,7 +225,8 @@ public class BrowseProductsActivity extends AppCompatActivity {
     //when prev button is clicked, calls showProduct() with the previous product
     public void prevProduct(View view){
         if(product_position>0){
-            getProduct(product_position--);
+            product_position=product_position-1;
+            getProduct(product_position);
         }
 
     }
@@ -212,7 +234,8 @@ public class BrowseProductsActivity extends AppCompatActivity {
     //when next button is clicked, calls showProduct() with the next product
     public void nextProduct(View view){
         if(product_position<allProducts.size()) {
-            getProduct(product_position++);
+            product_position=product_position+1;
+            getProduct(product_position);
         }
     }
 
