@@ -182,38 +182,36 @@ public class BrowseProductsActivity extends AppCompatActivity {
         */
         return BTC_price;
     }
-    public class GetBTCvalue extends AsyncTask<String, Void, String> {
+       public class GetBTCvalue extends AsyncTask<String, Void, String> {
         String BTC_url = "https://blockchain.info/tobtc?currency=CAD&value=49.99";
         private Exception exception = null;
 
-
-        public GetBTCvalue(Context context) {
-            context2 = context;
-        }
+        private EditText amount = null;
+       
 
         @Override
         protected String doInBackground(String... params) {
             String line;
-            //String result = NOT_AVAILABLE_MSG;
+            
             String result="";
             try {
                 URL url = new URL(BTC_url + params[0]);
-                
+
                 BufferedReader r = new BufferedReader(new InputStreamReader(url.openStream()));
                 StringBuilder t = new StringBuilder();
-                
+
 
                 BufferedReader bf = new BufferedReader(new InputStreamReader(url.openStream()));
                 StringBuilder out = new StringBuilder();
-                    
+
 
                 while ((line = bf.readLine()) != null) {
                     out.append(line);
                 }
-                
+
                 result = out.toString();
                 bf.close();
-                
+
 
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -226,8 +224,14 @@ public class BrowseProductsActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             this.amount.setText(result);
         }
+        
+        protected void setAmount (EditText amount){
+            this.amount = amount;
+        }
     }
+
    
+
 
     //when prev button is clicked, calls showProduct() with the previous product
     public void prevProduct(View view){
