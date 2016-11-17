@@ -1,9 +1,10 @@
- /*
- *When “Save” is clicked, call function on database helper to insert new product using values from the text fields,
- * clear the text fields,
- * then stop the activity (returning to BrowseProductsActivity)
+/*
+ * CSCI4100U Assignment2
+ *   helper activity
+ *
+ * Team Members: Khirthana Subramanian(100453865) and Jaina Patel(100523188)
+ *
  */
-
 package com.example.a100453865.asmt2_khirthanasubramanian_and_jaina_patel;
 
 
@@ -32,30 +33,29 @@ import android.widget.Toast;
          eDesc = (EditText) findViewById(R.id.editDesc);
          ePrice = (EditText) findViewById(R.id.editPrice);
          btnAdd = (Button) findViewById(R.id.button);
-
-         AddData();
-     }
-
-     public void AddData () {
-         btnAdd.setOnClickListener(
-                 new View.OnClickListener(){
-                     public void onClick(View v) {
-                         dtbs.addData(eName.getText().toString(), eDesc.getText().toString(), ePrice.getText().toString());
-                         Toast.makeText(AddProductActivity.this, "Data Added", Toast.LENGTH_LONG).show();
-                        
-                      
-                         eName.getText().clear();
-                         eDesc.getText().clear();
-                         ePrice.getText().clear();
-                         finish();
-
-                     }
-                 }
-         );
      }
 
 
+     public void saveProduct(View view){
+         //When “Save” button is clicked, call function on database helper to insert new product using values from the text fields
+         dtbs.addData(eName.getText().toString(), eDesc.getText().toString(), ePrice.getText().toString());
+         Toast.makeText(AddProductActivity.this, "Data Added", Toast.LENGTH_LONG).show();
 
+         // clear the text fields
+         eName.getText().clear();
+         eDesc.getText().clear();
+         ePrice.getText().clear();
 
+         //stop the activity (returning to BrowseProductsActivity)
+         finish();
+     }
+
+     public void cancelButton(View view){
+         //when cancel button is clicked, clear text fields and stop the activity (returning to BrowseProductsActivity)
+         eName.getText().clear();
+         eDesc.getText().clear();
+         ePrice.getText().clear();
+         finish();
+     }
  }
 

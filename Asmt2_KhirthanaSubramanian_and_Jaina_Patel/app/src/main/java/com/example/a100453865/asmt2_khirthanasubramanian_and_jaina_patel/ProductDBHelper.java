@@ -1,13 +1,10 @@
 /*
- *class takes care of the creation of the database table
- * and population of that table with sample product data
--productId (integer, primary key)
--name (string)
--description (string)
--price (decimal)
-o This class will have a function for querying the database, finding all products
-o This class will have a function for deleting a product from the database
-o This class will have a function for inserting a new product into the database
+ *  CSCI4100U Assignment2
+ *  database helper class takes care of the creation of the database table
+ *  and population of that table with sample product data
+ *
+ * Team Members: Khirthana Subramanian(100453865) and Jaina Patel(100523188)
+ *
  */
 
 package com.example.a100453865.asmt2_khirthanasubramanian_and_jaina_patel;
@@ -51,6 +48,8 @@ public class ProductDBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+
+    //function for inserting a new product into the database
     public boolean addData (String name, String desc, String price){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -64,13 +63,8 @@ public class ProductDBHelper extends SQLiteOpenHelper {
         else
             return true;
     }
-/*
-    public Cursor getAllData (){
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("Select * From "+ TABLE_PRODUCT_DETAIL, null);
-        return res;
-    }
-*/
+
+    //function for querying the database, finding all products
     public List<Product> getAllData (){
         SQLiteDatabase db = this.getWritableDatabase();
         //Cursor res = db.rawQuery("Select * From "+ TABLE_PRODUCT_DETAIL, null);
@@ -100,6 +94,8 @@ public class ProductDBHelper extends SQLiteOpenHelper {
 
         return results;
     }
+
+    //  function for deleting a product from the database
     public Integer deleteData (String id){
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(TABLE_PRODUCT_DETAIL, "ID = ?", new String [] {id});

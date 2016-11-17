@@ -1,3 +1,10 @@
+/*
+ * CSCI4100U Assignment2
+ * class Product, which stores the productId, name, description, and price of a product
+ *
+ * Team Members: Khirthana Subramanian(100453865) and Jaina Patel(100523188)
+ *
+ */
 package com.example.a100453865.asmt2_khirthanasubramanian_and_jaina_patel;
 
 
@@ -9,9 +16,7 @@ public class Product {
     double price;
 
 
-    public Product (){
-
-    }
+    public Product (){    }
 
     public Product (int product_id,String product_name, String product_desc, double price){
         this.product_id = product_id;
@@ -30,16 +35,10 @@ public class Product {
 
     public int getProduct_id(){return product_id;}
 
-    public String getProduct_name() {
-        return product_name;
-    }
+    public String getProduct_name() {return product_name;}
 
-    public String getProduct_desc() {
-        return product_desc;
-    }
+    public String getProduct_desc() {return product_desc;}
 
-    public double getPrice() {
-        return price;
-    }
+    public double getPrice() {return price;}
 }
 

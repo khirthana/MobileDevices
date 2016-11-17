@@ -1,3 +1,10 @@
+/*
+ *  CSCI4100U Assignment2
+ *     main activity
+ *
+ * Team Members: Khirthana Subramanian(100453865) and Jaina Patel(100523188)
+ * 
+ */
 package com.example.a100453865.asmt2_khirthanasubramanian_and_jaina_patel;
 
 import android.content.Context;
