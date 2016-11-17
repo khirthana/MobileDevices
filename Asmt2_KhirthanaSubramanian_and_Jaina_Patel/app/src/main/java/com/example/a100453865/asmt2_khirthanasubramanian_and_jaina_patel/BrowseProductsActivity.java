@@ -47,6 +47,8 @@ public class BrowseProductsActivity extends AppCompatActivity {
     Button button_prev;
     Button button_next;
 
+    double price_CAD;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -153,7 +155,8 @@ public class BrowseProductsActivity extends AppCompatActivity {
         priceField.setText(String.valueOf(p.getPrice()));
 
         //The price is submitted to a web service to find the corresponding price in BitCoin
-        //priceBTC=convertToBitCoin(p.getPrice());
+        priceBTC=convertToBitCoin(p.getPrice());
+
 
         //The BitCoin price is displayed in the corresponding text field
         EditText BTCField = (EditText)findViewById(R.id.editPriceBitcoin);
@@ -165,7 +168,8 @@ public class BrowseProductsActivity extends AppCompatActivity {
         float BTC_price=0;
         String value="";
 
-
+        new GetBTCvalue(this).execute("");
+        /*
         try {
            value= new GetBTCvalue(this).execute("").get();
         } catch (InterruptedException e) {
@@ -175,11 +179,13 @@ public class BrowseProductsActivity extends AppCompatActivity {
         }
 
         BTC_price=((float)CAD_price)*(Float.parseFloat(value));
+        */
         return BTC_price;
     }
     public class GetBTCvalue extends AsyncTask<String, Void, String> {
         String BTC_url = "https://blockchain.info/tobtc?currency=CAD&value=49.99";
         private Exception exception = null;
+
 
         public GetBTCvalue(Context context) {
             context2 = context;
@@ -188,21 +194,22 @@ public class BrowseProductsActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
             String line;
-            String result = NOT_AVAILABLE_MSG;
+            //String result = NOT_AVAILABLE_MSG;
+            String result="";
             try {
                 URL url = new URL(BTC_url + params[0]);
                 
                 BufferedReader r = new BufferedReader(new InputStreamReader(url.openStream()));
-                StringBuilder t = new StringBuiler();
+                StringBuilder t = new StringBuilder();
                 
 
-                    BufferedReader bf = new BufferedReader(new InputStreamReader(url.openStream()));
-                    StringBuilder out = new StringBuilder();
+                BufferedReader bf = new BufferedReader(new InputStreamReader(url.openStream()));
+                StringBuilder out = new StringBuilder();
                     
 
-                    while ((line = bf.readLine()) != null) {
-                        out.append(line);
-                    }
+                while ((line = bf.readLine()) != null) {
+                    out.append(line);
+                }
                 
                 result = out.toString();
                 bf.close();
