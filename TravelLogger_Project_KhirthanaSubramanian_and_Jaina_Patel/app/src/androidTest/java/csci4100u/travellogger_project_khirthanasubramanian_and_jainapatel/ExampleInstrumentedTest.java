@@ -1,4 +1,4 @@
-package com.example.a100453865.travellogger_project_khirthanasubramanian_and_jaina_patel;
+package csci4100u.travellogger_project_khirthanasubramanian_and_jainapatel;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.a100453865.travellogger_project_khirthanasubramanian_and_jaina_patel", appContext.getPackageName());
+        assertEquals("csci4100u.travellogger_project_khirthanasubramanian_and_jainapatel", appContext.getPackageName());
     }
 }

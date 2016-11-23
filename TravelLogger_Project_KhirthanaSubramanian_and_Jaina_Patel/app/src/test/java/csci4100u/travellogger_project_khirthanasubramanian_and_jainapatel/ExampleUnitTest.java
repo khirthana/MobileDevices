@@ -1,4 +1,4 @@
-package com.example.a100453865.travellogger_project_khirthanasubramanian_and_jaina_patel;
+package csci4100u.travellogger_project_khirthanasubramanian_and_jainapatel;
 
 import org.junit.Test;
 

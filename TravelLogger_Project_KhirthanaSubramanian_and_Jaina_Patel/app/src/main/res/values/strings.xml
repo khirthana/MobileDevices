@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">TravelLogger_Project_KhirthanaSubramanian_and_Jaina_Patel</string>
+    <string name="app_name">TravelLogger_Project_KhirthanaSubramanian_and_JainaPatel</string>
+    <string name="title_activity_settings">Settings</string>
 </resources>

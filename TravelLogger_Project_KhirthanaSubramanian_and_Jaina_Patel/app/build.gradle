@@ -2,9 +2,9 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "24.0.2"
+    buildToolsVersion "25.0.1"
     defaultConfig {
-        applicationId "com.example.a100453865.travellogger_project_khirthanasubramanian_and_jaina_patel"
+        applicationId "csci4100u.travellogger_project_khirthanasubramanian_and_jainapatel"
         minSdkVersion 21
         targetSdkVersion 24
         versionCode 1
@@ -25,5 +25,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support:design:24.2.1'
     testCompile 'junit:junit:4.12'
 }
