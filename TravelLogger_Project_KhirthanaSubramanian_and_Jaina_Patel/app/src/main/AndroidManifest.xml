@@ -8,16 +8,16 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Home"></activity>
-        <activity android:name=".About" />
-        <activity android:name=".Settings" />
-        <activity android:name=".Trips">
+        <activity android:name=".Home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".About" />
+        <activity android:name=".Settings" />
+        <activity android:name=".Trips"></activity>
         <activity android:name=".Add_trip" />
         <activity android:name=".Trip" />
         <activity android:name=".Notes" />
@@ -26,7 +26,11 @@
         <activity android:name=".Images" />
         <activity android:name=".Image" />
         <activity android:name=".Wishlist" />
-        <activity android:name=".AboutUs"></activity>
+        <activity android:name=".AboutUs"></activity><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>

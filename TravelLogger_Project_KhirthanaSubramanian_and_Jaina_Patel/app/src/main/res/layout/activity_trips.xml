@@ -10,7 +10,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="csci4100u.travellogger_project_khirthanasubramanian_and_jainapatel.Trips"
-    android:background="@drawable/image2">
+    android:background="@drawable/image1">
 
 
     <ListView
@@ -32,7 +32,15 @@
         android:tint="#FF33B5E5"
         android:backgroundTint="#f2f2f2"
         android:scaleX="2.0"
-        android:scaleY="2.0"/>
+        android:scaleY="2.0"
+        android:onClick="add_trip"/>
 
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:menu="@menu/menu" />
 
 </RelativeLayout>

@@ -6,12 +6,12 @@
             android:id="@+id/nav_home"
             android:title="@string/home" />
         <item
-            android:id="@+id/nav_photos"
+            android:id="@+id/nav_trips"
             android:title="@string/trips" />
 
 
         <item
-            android:id="@+id/nav_notifications"
+            android:id="@+id/nav_settings"
             android:title="@string/settings" />
 
 
@@ -20,7 +20,7 @@
     <item android:title="Other">
         <menu>
             <item
-                android:id="@+id/nav_movies"
+                android:id="@+id/nav_about"
                 android:title="@string/about" />
             <item
                 android:id="@+id/nav_about_us"
