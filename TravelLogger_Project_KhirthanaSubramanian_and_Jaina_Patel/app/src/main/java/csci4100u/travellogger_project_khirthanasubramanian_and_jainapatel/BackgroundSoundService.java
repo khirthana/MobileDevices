@@ -14,29 +14,5 @@ import java.io.InputStream;
 public class BackgroundSoundService {
 
 
-private static BackgroundSoundService refrence = null;
-
-public static BackgroundSoundService getInstance(){
-    if(refrence == null){
-        refrence = new BackgroundSoundService ();
-    }
-    return refrence;
-}
-    public void initalizeMediaPlayer(Context context, int musicId){
-
-// add initalization of media player in it and loop it
-        MediaPlayer bkgrdmsc;
-        bkgrdmsc = MediaPlayer.create(this, R.raw.bensound_memories);
-        bkgrdmsc.setLooping(true);
-    }
-
-    public void startPlaying(){
-        bkgrdmsc.start();
-    }
-
-    public void stopPlaying(){
-        bkgrdmsc.stop();
-    }
-
 
 }
