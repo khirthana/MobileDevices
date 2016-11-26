@@ -1,8 +1,13 @@
+/*
+    CSCI4100U Project - TravelLogger
+
+    Team Members: Khirthana Subramanian(100453865) and Jaina Patel(100523188)
+
+    TripDBHelper: database to store notes and wishlist
+
+ */
 package csci4100u.travellogger_project_khirthanasubramanian_and_jainapatel;
 
-/**
- * Created by 100453865 on 2016-11-23.
- */
 
 public class TripDBHelper {
 }

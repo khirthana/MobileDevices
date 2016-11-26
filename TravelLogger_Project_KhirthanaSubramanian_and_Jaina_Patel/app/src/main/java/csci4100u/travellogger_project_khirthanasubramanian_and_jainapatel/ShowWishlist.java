@@ -3,7 +3,7 @@
 
     Team Members: Khirthana Subramanian(100453865) and Jaina Patel(100523188)
 
-    About: display instructions on how to use the app
+     ShowWishlist displays wishlist
 
  */
 package csci4100u.travellogger_project_khirthanasubramanian_and_jainapatel;
@@ -11,11 +11,11 @@ package csci4100u.travellogger_project_khirthanasubramanian_and_jainapatel;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class About extends AppCompatActivity {
+public class ShowWishlist extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
+        setContentView(R.layout.activity_show_wishlist);
     }
 }
