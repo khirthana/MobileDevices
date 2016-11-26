@@ -6,22 +6,7 @@
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e0932e3-8d30-4cc0-b16f-a9d997d044a4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/csci4100u/travellogger_project_khirthanasubramanian_and_jainapatel/ShowWishlist.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/res/layout/activity_wishlist.xml" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_show_wishlist.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/csci4100u/travellogger_project_khirthanasubramanian_and_jainapatel/About.java" afterPath="$PROJECT_DIR$/src/main/java/csci4100u/travellogger_project_khirthanasubramanian_and_jainapatel/About.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/csci4100u/travellogger_project_khirthanasubramanian_and_jainapatel/AboutUs.java" afterPath="$PROJECT_DIR$/src/main/java/csci4100u/travellogger_project_khirthanasubramanian_and_jainapatel/AboutUs.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/csci4100u/travellogger_project_khirthanasubramanian_and_jainapatel/BackgroundSoundService.java" afterPath="$PROJECT_DIR$/src/main/java/csci4100u/travellogger_project_khirthanasubramanian_and_jainapatel/BackgroundSoundService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/csci4100u/travellogger_project_khirthanasubramanian_and_jainapatel/Home.java" afterPath="$PROJECT_DIR$/src/main/java/csci4100u/travellogger_project_khirthanasubramanian_and_jainapatel/Home.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/csci4100u/travellogger_project_khirthanasubramanian_and_jainapatel/Note.java" afterPath="$PROJECT_DIR$/src/main/java/csci4100u/travellogger_project_khirthanasubramanian_and_jainapatel/Note.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/csci4100u/travellogger_project_khirthanasubramanian_and_jainapatel/Notes.java" afterPath="$PROJECT_DIR$/src/main/java/csci4100u/travellogger_project_khirthanasubramanian_and_jainapatel/Notes.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/csci4100u/travellogger_project_khirthanasubramanian_and_jainapatel/Settings.java" afterPath="$PROJECT_DIR$/src/main/java/csci4100u/travellogger_project_khirthanasubramanian_and_jainapatel/Settings.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/csci4100u/travellogger_project_khirthanasubramanian_and_jainapatel/ShowNote.java" afterPath="$PROJECT_DIR$/src/main/java/csci4100u/travellogger_project_khirthanasubramanian_and_jainapatel/ShowNote.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/csci4100u/travellogger_project_khirthanasubramanian_and_jainapatel/TripDBHelper.java" afterPath="$PROJECT_DIR$/src/main/java/csci4100u/travellogger_project_khirthanasubramanian_and_jainapatel/TripDBHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/csci4100u/travellogger_project_khirthanasubramanian_and_jainapatel/Wishlist.java" afterPath="$PROJECT_DIR$/src/main/java/csci4100u/travellogger_project_khirthanasubramanian_and_jainapatel/Wishlist.java" />
-    </list>
+    <list default="true" id="8e0932e3-8d30-4cc0-b16f-a9d997d044a4" name="Default" comment="" />
     <ignored path="app.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -2376,7 +2361,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
