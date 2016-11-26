@@ -17,18 +17,20 @@
         </activity>
         <activity android:name=".About" />
         <activity android:name=".Settings" />
-        <activity android:name=".Trips"></activity>
-        <activity android:name=".Add_trip" />
-        <activity android:name=".Trip" />
         <activity android:name=".Notes" />
-        <activity android:name=".Note" />
+        <activity android:name=".Notes$Note" />
         <activity android:name=".Add_note" />
         <activity android:name=".Wishlist" />
-        <activity android:name=".AboutUs"></activity><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
-     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <activity android:name=".AboutUs" />
+        <!--
+ ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+        <activity android:name=".ShowNote"></activity>
     </application>
 
 </manifest>

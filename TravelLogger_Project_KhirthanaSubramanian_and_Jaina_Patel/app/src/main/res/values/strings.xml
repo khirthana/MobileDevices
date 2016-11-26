@@ -12,11 +12,12 @@
     <string name="add_note">Add Note</string>
     <string name="enter_note_1">Enter Note Name: </string>
     <string name="enter_note_2">Enter Note: </string>
-    <string name="about_us_content">Travel Logger App \n\n\n\n Developed By: \n\n Jaina Patel \n Khirthana Subramanian \n\n\n\n\n\n UOIT \n Mobile Devices 2016</string>
+    <string name="about_us_content">Travel Logger App \n\n This app serves as a travel journal. User can add notes about their trips and can add trip wishlist \n\n\n\n\n\n Developed By: \n\n Jaina Patel \n Khirthana Subramanian \n\n\n\n\n\n UOIT \n Mobile Devices 2016</string>
     <string name="openDrawer">open_drawer</string>
     <string name="closeDrawer">close_drawer</string>
     <string name="add_trip">Add Trip</string>
     <string name="enter_trip_name">Enter Trip Name: </string>
     <string name="enter_trip_place">Enter Location: </string>
-
+    <string name="notes">Notes</string>
+    <string name="wishlist">Wishlist</string>
 </resources>

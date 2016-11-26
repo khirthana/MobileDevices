@@ -1,24 +1,29 @@
 package csci4100u.travellogger_project_khirthanasubramanian_and_jainapatel;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
 
-public class Note extends AppCompatActivity {
+public class Note {
+    String note_name;
+    String note_content;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_note);
+    public Note(String name,String content){
+        this.note_name=name;
+        this.note_content=content;
     }
 
-    //when save button is pressed, changes in note is saved
-    public void save_note(View view){
-
+    void setNote_name(String name){
+        this.note_name=name;
     }
 
-    //when delete button is pressed, selected note is deleted
-    public void delete_note(View view){
-
+    void setNote_content(String content){
+        this.note_content=content;
     }
+
+    String getNote_name(){
+        return note_name;
+    }
+
+    String getNote_content(){
+        return note_content;
+    }
+
 }
