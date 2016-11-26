@@ -23,8 +23,6 @@
         <activity android:name=".Notes" />
         <activity android:name=".Note" />
         <activity android:name=".Add_note" />
-        <activity android:name=".Images" />
-        <activity android:name=".Image" />
         <activity android:name=".Wishlist" />
         <activity android:name=".AboutUs"></activity><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
