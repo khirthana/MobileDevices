@@ -10,7 +10,7 @@ Description: This app serves as a travel journal. User can add notes about their
 			 Also background music starts to play in loop. (Music: bensound_memories.mp3 from http://www.bensound.com)  
 			 Then, the user can select to view notes/wishlist/instructions/settings/about_us from the sliding menu.  
 			 The user has the choice to enable/disable background music and location from settings.  
-s
+
 
 
 
