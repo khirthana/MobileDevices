@@ -20,4 +20,8 @@
     <string name="enter_trip_place">Enter Location: </string>
     <string name="notes">Notes</string>
     <string name="wishlist">Wishlist</string>
+    <string name = "time">Current Date and Time: </string>
+    <string name="location">Your Location:</string>
+    <string name="country">Country</string>
+    <string name="city">City</string>
 </resources>
