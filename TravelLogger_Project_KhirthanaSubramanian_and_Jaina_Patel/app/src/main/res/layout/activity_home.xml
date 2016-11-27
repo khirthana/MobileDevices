@@ -9,12 +9,59 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="csci4100u.travellogger_project_khirthanasubramanian_and_jainapatel.Home">
+    tools:context="csci4100u.travellogger_project_khirthanasubramanian_and_jainapatel.Home"
+    android:background="@drawable/image2">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+
+        <EditText
+            android:text="@string/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTime"
+            android:textSize="18sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:fontFamily="serif-monospace"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:text="@string/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="69dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="@string/city"
+            android:ems="10"
+            android:id="@+id/editText"
+            android:fontFamily="cursive"
+            android:textSize="24sp"
+            android:layout_alignBaseline="@+id/textView2"
+            android:layout_alignBottom="@+id/textView2"
+            android:layout_toEndOf="@+id/textView2" />
+
+        <TextView
+            android:text="@string/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="61dp"
+            android:id="@+id/textView2"
+            android:textSize="24sp"
+            android:fontFamily="cursive"
+            android:layout_marginStart="52dp"
+            android:layout_below="@+id/editTime"
+            android:layout_alignParentStart="true" />
+
+
+    </RelativeLayout>
+
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
