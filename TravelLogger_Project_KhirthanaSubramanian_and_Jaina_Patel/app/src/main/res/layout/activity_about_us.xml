@@ -8,15 +8,30 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="csci4100u.travellogger_project_khirthanasubramanian_and_jainapatel.AboutUs">
+    tools:context="csci4100u.travellogger_project_khirthanasubramanian_and_jainapatel.AboutUs"
+    android:background="@drawable/image1">
 
     <TextView
         android:text="@string/about_us_content"
-        android:layout_width="350dp"
+        android:layout_width="wrap_content"
         android:layout_height="400dp"
         android:id="@+id/textView4"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:textAlignment="center"/>
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="@dimen/activity_vertical_margin"
+        android:typeface="serif"
+        android:textColor="@color/colorPrimaryDark"/>
+
+    <!--
+<android.support.design.widget.NavigationView
+ android:id="@+id/nav_view"
+ android:layout_width="wrap_content"
+ android:layout_height="match_parent"
+ android:layout_gravity="start"
+ android:fitsSystemWindows="true"
+ app:menu="@menu/menu" />
+-->
 </RelativeLayout>

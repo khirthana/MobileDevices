@@ -19,6 +19,8 @@ public class Notes extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes);
+        Intent svc=new Intent(this, BackgroundMusic.class);
+        startService(svc);
     }
 
     //when add image is pressed, Add_note is started to create new note

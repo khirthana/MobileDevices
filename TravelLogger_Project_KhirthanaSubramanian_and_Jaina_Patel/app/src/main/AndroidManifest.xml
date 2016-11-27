@@ -18,19 +18,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Home">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+ <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
         </activity>
         <activity android:name=".About" />
         <activity android:name=".Settings" />
-        <activity android:name=".Notes" />
-        <activity android:name=".Notes$Note" />
+        <activity android:name=".Notes" >
+        </activity>
         <activity android:name=".Add_note" />
-        <activity android:name=".Wishlist" />
-        <activity android:name=".AboutUs" />
+        <activity android:name=".AboutUs">
+        </activity>
+
         <!--
  ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -41,6 +42,9 @@
 
         <activity android:name=".ShowNote" />
         <activity android:name=".ShowWishlist"></activity>
+        <service
+            android:enabled="true"
+            android:name=".BackgroundMusic" />
     </application>
 
 </manifest>
