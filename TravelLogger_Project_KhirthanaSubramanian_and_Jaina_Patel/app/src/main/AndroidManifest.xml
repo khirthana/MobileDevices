@@ -2,13 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="csci4100u.travellogger_project_khirthanasubramanian_and_jainapatel">
 
-    
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <uses-library android:name="com.google.android.maps" />
 
     <application
@@ -18,16 +18,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Home">
- <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-
-        <category android:name="android.intent.category.LAUNCHER" />
-    </intent-filter>
         </activity>
         <activity android:name=".About" />
         <activity android:name=".Settings" />
-        <activity android:name=".Notes" >
-        </activity>
+        <activity android:name=".Notes"></activity>
         <activity android:name=".Add_note" />
         <activity android:name=".AboutUs">
         </activity>
@@ -41,10 +35,18 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".ShowNote" />
-        <activity android:name=".ShowWishlist"></activity>
+        <activity android:name=".Wishlist" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <service
-            android:enabled="true"
-            android:name=".BackgroundMusic" />
+            android:name=".BackgroundMusic"
+            android:enabled="true" />
+
     </application>
 
 </manifest>
