@@ -12,10 +12,18 @@ package csci4100u.travellogger_project_khirthanasubramanian_and_jainapatel;
 public class Note {
     String note_name;
     String note_content;
+    public int id;
+
+    public Note(){
+        this.note_name=null;
+        this.note_content=null;
+    }
 
     public Note(String name,String content){
+        super();
         this.note_name=name;
         this.note_content=content;
+;
     }
 
     void setNote_name(String name){
@@ -26,6 +34,8 @@ public class Note {
         this.note_content=content;
     }
 
+    void setId(int id){this.id=id;}
+
     String getNote_name(){
         return note_name;
     }
@@ -33,5 +43,7 @@ public class Note {
     String getNote_content(){
         return note_content;
     }
+
+    int getId(){ return id;}
 
 }

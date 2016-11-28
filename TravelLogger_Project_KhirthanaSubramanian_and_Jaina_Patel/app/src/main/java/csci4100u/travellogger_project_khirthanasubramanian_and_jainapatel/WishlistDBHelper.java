@@ -1,3 +1,11 @@
+/*
+    CSCI4100U Project - TravelLogger
+
+    Team Members: Khirthana Subramanian(100453865) and Jaina Patel(100523188)
+
+    WishlistDBHelper: database to store wishlist content
+
+ */
 package csci4100u.travellogger_project_khirthanasubramanian_and_jainapatel;
 
 
@@ -11,9 +19,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by 100523188 on 11/27/2016.
- */
 
 public class WishlistDBHelper extends SQLiteOpenHelper{
 

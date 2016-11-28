@@ -1,3 +1,11 @@
+/*
+    CSCI4100U Project - TravelLogger
+
+    Team Members: Khirthana Subramanian(100453865) and Jaina Patel(100523188)
+
+    NoteDBHelper: database to store notes contents
+
+ */
 package csci4100u.travellogger_project_khirthanasubramanian_and_jainapatel;
 
 
@@ -7,9 +15,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-/**
- * Created by 100523188 on 11/27/2016.
- */
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class NoteDBHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
@@ -40,7 +48,7 @@ public class NoteDBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean addNote (String name, String desc, String price){
+    public boolean addNote (String name, String desc){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(KEY_name,name);
@@ -53,10 +61,25 @@ public class NoteDBHelper extends SQLiteOpenHelper {
             return true;
     }
 
-    public Cursor getAllNotes (){
+    public List<Note> getAllNotes (){
+        List<Note> nlist = new ArrayList<Note>();
+
+        String selectQuery = "SELECT  * FROM " + TABLE_NOTE_DETAIL;
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("Select * From "+ TABLE_NOTE_DETAIL, null);
-        return res;
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Note task = new Note();
+                task.setId(cursor.getInt(0));
+                task.setNote_name(cursor.getString(1));
+                task.setNote_content(cursor.getString(2));
+
+               nlist.add(task);
+            } while (cursor.moveToNext());
+        }
+
+        return nlist;
     }
 
     public Integer deleteNote (String id){

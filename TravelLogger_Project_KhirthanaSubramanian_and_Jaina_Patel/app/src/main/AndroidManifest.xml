@@ -18,12 +18,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Home">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".About" />
         <activity android:name=".Settings" />
         <activity android:name=".Notes"></activity>
         <activity android:name=".Add_note" />
         <activity android:name=".AboutUs">
+        </activity>
+        <activity android:name=".ShowNote" />
+        <activity android:name=".Wishlist" >
         </activity>
 
         <!--
@@ -33,15 +41,6 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-
-        <activity android:name=".ShowNote" />
-        <activity android:name=".Wishlist" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
         <service
             android:name=".BackgroundMusic"
