@@ -35,7 +35,7 @@ public class NoteDBHelper extends SQLiteOpenHelper {
     }
     public void onCreate (SQLiteDatabase db){
         String CREATE_PRODUCT_TABLE = "CREATE TABLE " + TABLE_NOTE_DETAIL + "("
-                + KEY_id + "INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + KEY_id + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + KEY_name + " TEXT,"
                 + KEY_detail + " TEXT"+ ")";
 
@@ -48,17 +48,22 @@ public class NoteDBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean addNote (String name, String desc){
+    public void addNote (String name, String desc){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(KEY_name,name);
         contentValues.put(KEY_detail,desc);
-        long result = db.insert (TABLE_NOTE_DETAIL, null, contentValues);
+
+        /*long result = db.insert (TABLE_NOTE_DETAIL, null, contentValues);
 
         if (result == 1)
             return false;
         else
             return true;
+        */
+
+        db.insert(TABLE_NOTE_DETAIL, null, contentValues);
+        db.close();
     }
 
     public List<Note> getAllNotes (){
@@ -82,8 +87,29 @@ public class NoteDBHelper extends SQLiteOpenHelper {
         return nlist;
     }
 
+    /*
     public Integer deleteNote (String id){
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(TABLE_NOTE_DETAIL, "ID = ?", new String [] {id});
+    }
+    */
+    public void deleteNote (Note note){
+        SQLiteDatabase db = this.getWritableDatabase();
+        //ContentValues values = new ContentValues();
+        //values.put(KEY_name, note.getNote_name());
+        //values.put(KEY_detail, note.getNote_content());
+        //db.delete(TABLE_NOTE_DETAIL, values, KEY_id + " = ?",new String[]{String.valueOf(note.getId())});
+        db.delete(TABLE_NOTE_DETAIL, KEY_name + "=" + note.getNote_name(), null);
+        //return db.delete(TABLE_NOTE_DETAIL, "ID = ?", new String [] {id});
+    }
+
+    public void updateNote(Note note) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_name, note.getNote_name());
+        values.put(KEY_detail, note.getNote_content());
+        db.update(TABLE_NOTE_DETAIL, values, KEY_id + " = ?",
+                new String[]{String.valueOf(note.getId())});
     }
 }

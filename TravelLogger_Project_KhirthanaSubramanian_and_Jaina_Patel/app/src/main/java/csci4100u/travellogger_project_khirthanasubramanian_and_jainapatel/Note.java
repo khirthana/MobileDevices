@@ -9,7 +9,9 @@
 package csci4100u.travellogger_project_khirthanasubramanian_and_jainapatel;
 
 
-public class Note {
+import java.io.Serializable;
+
+public class Note implements Serializable {
     String note_name;
     String note_content;
     public int id;

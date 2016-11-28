@@ -24,6 +24,10 @@ public class AboutUs extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_us);
 
+        //start background music
+        Intent svc=new Intent(this, BackgroundMusic.class);
+        startService(svc);
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -62,7 +66,6 @@ public class AboutUs extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-
     }
 }
 

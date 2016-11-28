@@ -23,6 +23,9 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -38,6 +41,10 @@ public class Home extends AppCompatActivity implements LocationListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        //start background music
+        Intent svc=new Intent(this, BackgroundMusic.class);
+        startService(svc);
 
         TextView textView = (TextView) findViewById(R.id.textTime);
 
@@ -165,5 +172,47 @@ public class Home extends AppCompatActivity implements LocationListener {
         } else {
             Log.d("LocationSample", "No geocoder present");
         }
+    }
+
+    //menu is created
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    //when menu item is selected, the appropriate activity is started
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.nav_home:
+                Intent i = new Intent(Home.this,Home.class);
+                //i.putExtra("list", (Serializable) product_list);
+                startActivity(i);
+                return true;
+            case R.id.nav_notes:
+                Intent i2 = new Intent(Home.this,Notes.class);
+                //i2.putExtra("list", (Serializable) product_list);
+                startActivity(i2);
+                return true;
+            case R.id.nav_wishist:
+                Intent i3 = new Intent(Home.this,Wishlist.class);
+                startActivity(i3);
+                return true;
+            case R.id.nav_instructions:
+                Intent i4 = new Intent(Home.this,About.class);
+                startActivity(i4);
+                return true;
+            case R.id.nav_about_us:
+                Intent i5 = new Intent(Home.this,AboutUs.class);
+                startActivity(i5);
+                return true;
+            case R.id.nav_settings:
+                Intent i6 = new Intent(Home.this,About.class);
+                startActivity(i6);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
     }
 }

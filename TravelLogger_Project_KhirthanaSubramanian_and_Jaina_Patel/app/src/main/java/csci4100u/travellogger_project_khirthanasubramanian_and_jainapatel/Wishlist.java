@@ -11,10 +11,13 @@ package csci4100u.travellogger_project_khirthanasubramanian_and_jainapatel;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -36,6 +39,11 @@ public class Wishlist extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wishlist);
+
+        //start background music
+        Intent svc=new Intent(this, BackgroundMusic.class);
+        startService(svc);
+
         db = new WishlistDBHelper(this);
         list = db.getAllWishes();
         adapt = new MyAdapter(this, R.layout.list_inner_view, list);
@@ -43,12 +51,6 @@ public class Wishlist extends AppCompatActivity {
         wishlist.setAdapter(adapt);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
 
     public void addTaskNow(View v) {
         EditText t = (EditText) findViewById(R.id.editText1);
@@ -117,5 +119,45 @@ public class Wishlist extends AppCompatActivity {
         }
     }
 
+    //menu is created
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    //when menu item is selected, the appropriate activity is started
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.nav_home:
+                Intent i = new Intent(Wishlist.this,Home.class);
+                //i.putExtra("list", (Serializable) product_list);
+                startActivity(i);
+                return true;
+            case R.id.nav_notes:
+                Intent i2 = new Intent(Wishlist.this,Notes.class);
+                //i2.putExtra("list", (Serializable) product_list);
+                startActivity(i2);
+                return true;
+            case R.id.nav_wishist:
+                Intent i3 = new Intent(Wishlist.this,Wishlist.class);
+                startActivity(i3);
+                return true;
+            case R.id.nav_instructions:
+                Intent i4 = new Intent(Wishlist.this,About.class);
+                startActivity(i4);
+                return true;
+            case R.id.nav_about_us:
+                Intent i5 = new Intent(Wishlist.this,AboutUs.class);
+                startActivity(i5);
+                return true;
+            case R.id.nav_settings:
+                Intent i6 = new Intent(Wishlist.this,About.class);
+                startActivity(i6);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
 }
