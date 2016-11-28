@@ -1,3 +1,6 @@
+package csci4100u.travellogger_project_khirthanasubramanian_and_jainapatel;
+
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
