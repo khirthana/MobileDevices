@@ -22,9 +22,8 @@ import android.widget.Toast;
 import java.io.Serializable;
 
 public class ShowNote extends AppCompatActivity {
-    Note update_note;
-    Note delete_note;
     Note note;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,8 +53,6 @@ public class ShowNote extends AppCompatActivity {
             EditText note_name = (EditText)findViewById(R.id.noteName);
             EditText note_content  = (EditText)findViewById(R.id.noteContent);
 
-
-            //int id=0;
             String noteName=note_name.getText().toString();
             String noteContent = note_content.getText().toString();
 
@@ -64,13 +61,12 @@ public class ShowNote extends AppCompatActivity {
                 Toast.makeText(this, "enter note name & note content",
                         Toast.LENGTH_LONG);
             } else {
-                //create new note
-                update_note=new Note(noteName,noteContent);
 
-                //return note added
+                //return user inputs for updated note
                 Intent returnIntent = new Intent();
-                returnIntent.putExtra("updateNote",  (Serializable) update_note);
                 returnIntent.putExtra("action","update");
+                returnIntent.putExtra("name",noteName);
+                returnIntent.putExtra("content",noteContent);
 
                 setResult(Activity.RESULT_OK,returnIntent);
                 finish();
@@ -80,31 +76,10 @@ public class ShowNote extends AppCompatActivity {
 
         //when delete button is pressed, selected note is deleted
         public void delete_note(View view){
-            //get data entered by user
-            EditText note_name = (EditText)findViewById(R.id.noteName);
-            EditText note_content  = (EditText)findViewById(R.id.noteContent);
-
-
-            //int id=0;
-            String noteName=note_name.getText().toString();
-            String noteContent = note_content.getText().toString();
-
-            //if field is empty
-            if (noteName.equalsIgnoreCase("")||noteContent.equalsIgnoreCase("")) {
-                Toast.makeText(this, "enter note name & note content",
-                        Toast.LENGTH_LONG);
-            } else {
-                //create new note
-                delete_note=new Note(noteName,noteContent);
-
-                //return note added
                 Intent returnIntent = new Intent();
-                returnIntent.putExtra("deleteNote",  (Serializable) delete_note);
                 returnIntent.putExtra("action","delete");
-
                 setResult(Activity.RESULT_OK,returnIntent);
                 finish();
-            }
         }
 
     //menu is created
@@ -119,12 +94,10 @@ public class ShowNote extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.nav_home:
                 Intent i = new Intent(ShowNote.this,Home.class);
-                //i.putExtra("list", (Serializable) product_list);
                 startActivity(i);
                 return true;
             case R.id.nav_notes:
                 Intent i2 = new Intent(ShowNote.this,Notes.class);
-                //i2.putExtra("list", (Serializable) product_list);
                 startActivity(i2);
                 return true;
             case R.id.nav_wishist:
@@ -132,16 +105,12 @@ public class ShowNote extends AppCompatActivity {
                 startActivity(i3);
                 return true;
             case R.id.nav_instructions:
-                Intent i4 = new Intent(ShowNote.this,About.class);
+                Intent i4 = new Intent(ShowNote.this,Instructions.class);
                 startActivity(i4);
                 return true;
             case R.id.nav_about_us:
                 Intent i5 = new Intent(ShowNote.this,AboutUs.class);
                 startActivity(i5);
-                return true;
-            case R.id.nav_settings:
-                Intent i6 = new Intent(ShowNote.this,About.class);
-                startActivity(i6);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

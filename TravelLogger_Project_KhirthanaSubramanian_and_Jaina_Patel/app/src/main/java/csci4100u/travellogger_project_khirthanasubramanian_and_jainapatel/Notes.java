@@ -32,13 +32,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static android.R.attr.name;
+import static android.R.attr.selectable;
 
 public class Notes extends AppCompatActivity {
     protected NoteDBHelper db;
     List<Note> list;
-    //MyAdapter adapt;
     public static final int RESULT =1;
     public static final int RESULT2 =2;
+    Intent svc;
+    Note selected_note;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,14 +48,10 @@ public class Notes extends AppCompatActivity {
         setContentView(R.layout.activity_notes);
 
         //start background music
-        Intent svc=new Intent(this, BackgroundMusic.class);
+        svc=new Intent(this, BackgroundMusic.class);
         startService(svc);
 
-        db = new NoteDBHelper(this);
-        list = db.getAllNotes();
 
-        //insert test data
-        //db.addNote("Toronto", "Visit CN Tower");
     }
 
 
@@ -61,20 +59,22 @@ public class Notes extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+        db = new NoteDBHelper(this);
+        list = db.getAllNotes();
+
         List<String> strings = new ArrayList<>(list.size());
         for (Note object : list) {
             strings.add(object.getNote_name());
         }
 
 
-        //display contacts to ListView
+        //display notes to ListView
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, strings);
 
 
         ListView listview = (ListView) findViewById(R.id.notelist);
         listview.setAdapter(adapter);
 
-        //display notes in listView
 
         //final ListView listview = (ListView) findViewById(R.id.notelist);
 
@@ -83,7 +83,7 @@ public class Notes extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
                 //String note_n=(listview.getItemAtPosition(position).toString());
 
-                Note selected_note=list.get(position);
+                selected_note=list.get(position);
                 Intent intent = new Intent(Notes.this,ShowNote.class);
                 intent.putExtra("selected_note",  (Serializable) selected_note);
                 //intent.putExtra("name",item);
@@ -106,12 +106,10 @@ public class Notes extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.nav_home:
                 Intent i = new Intent(Notes.this,Home.class);
-                //i.putExtra("list", (Serializable) product_list);
                 startActivity(i);
                 return true;
             case R.id.nav_notes:
                 Intent i2 = new Intent(Notes.this,Notes.class);
-                //i2.putExtra("list", (Serializable) product_list);
                 startActivity(i2);
                 return true;
             case R.id.nav_wishist:
@@ -119,16 +117,12 @@ public class Notes extends AppCompatActivity {
                 startActivity(i3);
                 return true;
             case R.id.nav_instructions:
-                Intent i4 = new Intent(Notes.this,About.class);
+                Intent i4 = new Intent(Notes.this,Instructions.class);
                 startActivity(i4);
                 return true;
             case R.id.nav_about_us:
                 Intent i5 = new Intent(Notes.this,AboutUs.class);
                 startActivity(i5);
-                return true;
-            case R.id.nav_settings:
-                Intent i6 = new Intent(Notes.this,About.class);
-                startActivity(i6);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -137,16 +131,11 @@ public class Notes extends AppCompatActivity {
 
     protected void onStop() {
         super.onStop();
-
-
     }
 
     //when add image is pressed, Add_note is started to create new note
     public void add_note(View view){
         Intent i = new Intent(Notes.this, Add_note.class);
-
-        //i.putExtra("location", query);
-
         startActivityForResult(i,RESULT);
     }
 
@@ -161,21 +150,34 @@ public class Notes extends AppCompatActivity {
                 Note new_note= (Note) data.getSerializableExtra("newNote");
                 list.add(new_note);
                 db.addNote(new_note.getNote_name(),new_note.getNote_content());
+                Toast.makeText(
+                        getApplicationContext(), new_note.getNote_name()+
+                                " note is added", Toast.LENGTH_LONG).show();
             }
         }
         else if (requestCode == RESULT2) {
             if(resultCode == Activity.RESULT_OK){
                 String action=data.getStringExtra("action");
 
-                if(action.equals("update")){ //update note
-                    Note update_note= (Note) data.getSerializableExtra("updateNote");
-                    db.updateNote(update_note);
+                //update note
+                if(action.equals("update")){
+                    int id=selected_note.getId();
+                    String name=data.getStringExtra("name");
+                    String content=data.getStringExtra("content");
+                    db.updateNote(id,name,content);
+                    Toast.makeText(
+                            getApplicationContext(), name+
+                            " note is updated", Toast.LENGTH_LONG).show();
                 }
-                else if(action.equals("delete")){ //delete note
-                    Note delete_note= (Note) data.getSerializableExtra("deleteNote");
-                    db.deleteNote(delete_note);
+                //delete note
+                else if(action.equals("delete")){
+                    int id=selected_note.getId();
+                    list.remove(selected_note);
+                    db.deleteNote( Integer.toString(id));
+                    Toast.makeText(
+                            getApplicationContext(), selected_note.getNote_name()+
+                                    " note is deleted", Toast.LENGTH_LONG).show();
                 }
-
 
             }
         }

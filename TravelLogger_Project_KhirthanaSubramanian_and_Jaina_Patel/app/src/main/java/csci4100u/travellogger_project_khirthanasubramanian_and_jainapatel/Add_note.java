@@ -33,8 +33,6 @@ public class Add_note extends AppCompatActivity {
         EditText note_name = (EditText)findViewById(R.id.noteName);
         EditText note_content  = (EditText)findViewById(R.id.noteContent);
 
-
-        //int id=0;
         String noteName=note_name.getText().toString();
         String noteContent = note_content.getText().toString();
 
@@ -83,12 +81,10 @@ public class Add_note extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.nav_home:
                 Intent i = new Intent(Add_note.this,Home.class);
-                //i.putExtra("list", (Serializable) product_list);
                 startActivity(i);
                 return true;
             case R.id.nav_notes:
                 Intent i2 = new Intent(Add_note.this,Notes.class);
-                //i2.putExtra("list", (Serializable) product_list);
                 startActivity(i2);
                 return true;
             case R.id.nav_wishist:
@@ -96,16 +92,12 @@ public class Add_note extends AppCompatActivity {
                 startActivity(i3);
                 return true;
             case R.id.nav_instructions:
-                Intent i4 = new Intent(Add_note.this,About.class);
+                Intent i4 = new Intent(Add_note.this,Instructions.class);
                 startActivity(i4);
                 return true;
             case R.id.nav_about_us:
                 Intent i5 = new Intent(Add_note.this,AboutUs.class);
                 startActivity(i5);
-                return true;
-            case R.id.nav_settings:
-                Intent i6 = new Intent(Add_note.this,About.class);
-                startActivity(i6);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

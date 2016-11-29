@@ -1,7 +1,11 @@
 package csci4100u.travellogger_project_khirthanasubramanian_and_jainapatel;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 public class Instructions extends AppCompatActivity {
 
@@ -9,7 +13,7 @@ public class Instructions extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about_us);
+        setContentView(R.layout.activity_instructions);
 
         //start background music
         Intent svc=new Intent(this, BackgroundMusic.class);
@@ -25,30 +29,24 @@ public class Instructions extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_home:
-                Intent i = new Intent(Intructions.this,Home.class);
-                //i.putExtra("list", (Serializable) product_list);
+                Intent i = new Intent(Instructions.this,Home.class);
                 startActivity(i);
                 return true;
             case R.id.nav_notes:
-                Intent i2 = new Intent(Intructions.this,Notes.class);
-                //i2.putExtra("list", (Serializable) product_list);
+                Intent i2 = new Intent(Instructions.this,Notes.class);
                 startActivity(i2);
                 return true;
             case R.id.nav_wishist:
-                Intent i3 = new Intent(Intructions.this,Wishlist.class);
+                Intent i3 = new Intent(Instructions.this,Wishlist.class);
                 startActivity(i3);
                 return true;
             case R.id.nav_instructions:
-                Intent i4 = new Intent(Intructions.this,Instructions.class);
+                Intent i4 = new Intent(Instructions.this,Instructions.class);
                 startActivity(i4);
                 return true;
             case R.id.nav_about_us:
-                Intent i5 = new Intent(Intructions.this,AboutUs.class);
+                Intent i5 = new Intent(Instructions.this,AboutUs.class);
                 startActivity(i5);
-                return true;
-            case R.id.nav_settings:
-                Intent i6 = new Intent(Intructions.this,About.class);
-                startActivity(i6);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

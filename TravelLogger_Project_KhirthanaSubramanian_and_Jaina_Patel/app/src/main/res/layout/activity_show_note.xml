@@ -47,7 +47,6 @@
         android:text=""
         android:ems="10"
         android:id="@+id/noteContent"
-        android:maxLines="10"
         android:layout_below="@+id/noteName"
         android:layout_alignParentStart="true" />
 

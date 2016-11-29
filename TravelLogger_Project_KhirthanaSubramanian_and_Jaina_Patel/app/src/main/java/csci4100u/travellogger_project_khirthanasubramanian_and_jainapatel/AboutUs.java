@@ -39,12 +39,10 @@ public class AboutUs extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.nav_home:
                 Intent i = new Intent(AboutUs.this,Home.class);
-                //i.putExtra("list", (Serializable) product_list);
                 startActivity(i);
                 return true;
             case R.id.nav_notes:
                 Intent i2 = new Intent(AboutUs.this,Notes.class);
-                //i2.putExtra("list", (Serializable) product_list);
                 startActivity(i2);
                 return true;
             case R.id.nav_wishist:
@@ -52,16 +50,12 @@ public class AboutUs extends AppCompatActivity {
                 startActivity(i3);
                 return true;
             case R.id.nav_instructions:
-                Intent i4 = new Intent(AboutUs.this,About.class);
+                Intent i4 = new Intent(AboutUs.this,Instructions.class);
                 startActivity(i4);
                 return true;
             case R.id.nav_about_us:
                 Intent i5 = new Intent(AboutUs.this,AboutUs.class);
                 startActivity(i5);
-                return true;
-            case R.id.nav_settings:
-                Intent i6 = new Intent(AboutUs.this,About.class);
-                startActivity(i6);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

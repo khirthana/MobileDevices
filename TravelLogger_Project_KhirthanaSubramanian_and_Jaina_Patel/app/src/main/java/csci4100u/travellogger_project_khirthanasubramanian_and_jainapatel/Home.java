@@ -186,12 +186,10 @@ public class Home extends AppCompatActivity implements LocationListener {
         switch (item.getItemId()) {
             case R.id.nav_home:
                 Intent i = new Intent(Home.this,Home.class);
-                //i.putExtra("list", (Serializable) product_list);
                 startActivity(i);
                 return true;
             case R.id.nav_notes:
                 Intent i2 = new Intent(Home.this,Notes.class);
-                //i2.putExtra("list", (Serializable) product_list);
                 startActivity(i2);
                 return true;
             case R.id.nav_wishist:
@@ -199,20 +197,22 @@ public class Home extends AppCompatActivity implements LocationListener {
                 startActivity(i3);
                 return true;
             case R.id.nav_instructions:
-                Intent i4 = new Intent(Home.this,About.class);
+                Intent i4 = new Intent(Home.this,Instructions.class);
                 startActivity(i4);
                 return true;
             case R.id.nav_about_us:
                 Intent i5 = new Intent(Home.this,AboutUs.class);
                 startActivity(i5);
                 return true;
-            case R.id.nav_settings:
-                Intent i6 = new Intent(Home.this,About.class);
-                startActivity(i6);
-                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        stopService(new Intent(this, BackgroundMusic.class));
     }
 }

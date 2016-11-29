@@ -54,14 +54,6 @@ public class NoteDBHelper extends SQLiteOpenHelper {
         contentValues.put(KEY_name,name);
         contentValues.put(KEY_detail,desc);
 
-        /*long result = db.insert (TABLE_NOTE_DETAIL, null, contentValues);
-
-        if (result == 1)
-            return false;
-        else
-            return true;
-        */
-
         db.insert(TABLE_NOTE_DETAIL, null, contentValues);
         db.close();
     }
@@ -87,29 +79,25 @@ public class NoteDBHelper extends SQLiteOpenHelper {
         return nlist;
     }
 
-    /*
-    public Integer deleteNote (String id){
+
+    public void deleteNote (String id){
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(TABLE_NOTE_DETAIL, "ID = ?", new String [] {id});
-    }
-    */
-    public void deleteNote (Note note){
-        SQLiteDatabase db = this.getWritableDatabase();
-        //ContentValues values = new ContentValues();
-        //values.put(KEY_name, note.getNote_name());
-        //values.put(KEY_detail, note.getNote_content());
-        //db.delete(TABLE_NOTE_DETAIL, values, KEY_id + " = ?",new String[]{String.valueOf(note.getId())});
-        db.delete(TABLE_NOTE_DETAIL, KEY_name + "=" + note.getNote_name(), null);
-        //return db.delete(TABLE_NOTE_DETAIL, "ID = ?", new String [] {id});
+        db.delete(TABLE_NOTE_DETAIL, KEY_id + " = ?", new String[] { id });
+        db.close();
     }
 
-    public void updateNote(Note note) {
 
+    public void updateNote(int id, String name, String content) {
         SQLiteDatabase db = this.getWritableDatabase();
+        if (db == null) {
+            return;
+        }
         ContentValues values = new ContentValues();
-        values.put(KEY_name, note.getNote_name());
-        values.put(KEY_detail, note.getNote_content());
-        db.update(TABLE_NOTE_DETAIL, values, KEY_id + " = ?",
-                new String[]{String.valueOf(note.getId())});
+        values.put(KEY_name, name);
+        values.put(KEY_detail, content);
+        db.update(TABLE_NOTE_DETAIL, values, KEY_id + " = ?", new String[] { String.valueOf(id) } );
+        db.close();
     }
+
+
 }

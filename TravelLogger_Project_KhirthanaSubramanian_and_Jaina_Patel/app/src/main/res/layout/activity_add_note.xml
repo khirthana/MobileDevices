@@ -65,7 +65,6 @@
         android:text=""
         android:ems="10"
         android:id="@+id/noteContent"
-        android:maxLines="10"
         android:layout_marginTop="33dp"
         android:layout_below="@+id/textView"
         android:layout_alignParentStart="true" />

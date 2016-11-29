@@ -34,16 +34,6 @@ public class BackgroundMusic extends Service {
         player.start(); //music is started
     }
 
-    /*
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        player.start();
-        return 1;
-    }
-    public void onStart(Intent intent, int startId) {
-
-    }
-    /*/
-
 
     public void onStop() {
     }
