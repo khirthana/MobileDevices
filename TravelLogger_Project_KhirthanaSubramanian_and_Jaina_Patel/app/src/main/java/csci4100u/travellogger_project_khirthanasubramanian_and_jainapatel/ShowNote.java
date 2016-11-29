@@ -3,7 +3,7 @@
 
     Team Members: Khirthana Subramanian(100453865) and Jaina Patel(100523188)
 
-    ShowNote: display selected note
+    ShowNote: display selected note & user can update or delete note
 
  */
 package csci4100u.travellogger_project_khirthanasubramanian_and_jainapatel;

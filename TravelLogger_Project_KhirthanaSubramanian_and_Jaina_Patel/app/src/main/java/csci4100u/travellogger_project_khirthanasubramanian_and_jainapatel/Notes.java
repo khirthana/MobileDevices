@@ -50,8 +50,6 @@ public class Notes extends AppCompatActivity {
         //start background music
         svc=new Intent(this, BackgroundMusic.class);
         startService(svc);
-
-
     }
 
 
@@ -67,7 +65,6 @@ public class Notes extends AppCompatActivity {
             strings.add(object.getNote_name());
         }
 
-
         //display notes to ListView
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, strings);
 
@@ -75,19 +72,12 @@ public class Notes extends AppCompatActivity {
         ListView listview = (ListView) findViewById(R.id.notelist);
         listview.setAdapter(adapter);
 
-
-        //final ListView listview = (ListView) findViewById(R.id.notelist);
-
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
-                //String note_n=(listview.getItemAtPosition(position).toString());
-
                 selected_note=list.get(position);
                 Intent intent = new Intent(Notes.this,ShowNote.class);
                 intent.putExtra("selected_note",  (Serializable) selected_note);
-                //intent.putExtra("name",item);
-                //intent.putExtra("content",content);
                 startActivityForResult(intent,RESULT2);
             }
         });

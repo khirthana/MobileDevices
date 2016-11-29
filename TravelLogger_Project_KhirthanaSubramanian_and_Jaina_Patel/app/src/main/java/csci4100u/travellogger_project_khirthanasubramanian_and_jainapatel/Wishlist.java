@@ -3,7 +3,7 @@
 
     Team Members: Khirthana Subramanian(100453865) and Jaina Patel(100523188)
 
-     Wishlist: displays wishlist and add new wishlist
+     Wishlist: displays wishlist and uer can add new wish
 
  */
 package csci4100u.travellogger_project_khirthanasubramanian_and_jainapatel;

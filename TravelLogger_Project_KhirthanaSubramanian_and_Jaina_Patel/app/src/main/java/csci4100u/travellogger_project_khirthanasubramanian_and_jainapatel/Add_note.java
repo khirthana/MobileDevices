@@ -1,3 +1,11 @@
+/*
+    CSCI4100U Project - TravelLogger
+
+    Team Members: Khirthana Subramanian(100453865) and Jaina Patel(100523188)
+
+    Add_note: get user input for new note & creates new note
+
+ */
 package csci4100u.travellogger_project_khirthanasubramanian_and_jainapatel;
 
 import android.app.Activity;
@@ -36,7 +44,7 @@ public class Add_note extends AppCompatActivity {
         String noteName=note_name.getText().toString();
         String noteContent = note_content.getText().toString();
 
-//if field is empty
+        //if field is empty
         if (noteName.equalsIgnoreCase("")||noteContent.equalsIgnoreCase("")) {
             Toast.makeText(this, "enter note name & note content",
                     Toast.LENGTH_LONG);
