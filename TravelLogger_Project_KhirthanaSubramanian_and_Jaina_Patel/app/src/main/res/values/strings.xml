@@ -12,6 +12,7 @@
     <string name="enter_note_1">Enter Note Name: </string>
     <string name="enter_note_2">Enter Note: </string>
     <string name="about_us_content">Travel Logger App \n\n This app serves as a travel journal. User can add notes about their trips and can add trip wishlist \n\n\n\n   Music: bensound_memories.mp3 from \n http://www.bensound.com \n\n\n\n\n\n Developed By: \n\n Jaina Patel \n Khirthana Subramanian \n\n\n\n\n\n UOIT \n Mobile Devices 2016</string>
+    <string name="instruction">\nThe Home screen of the app will show you the current date, time and location.\n\n\nTo add a note about a recent trip, go to Notes from menu and you will have the option of adding, deleting or browsing the notes.\n\n\nThe trip wishlist page lets you add trip destinations that you would like to visit, once visited you can check the checkbox off.\n\n\nHope this app is useful to everyone. Have fun adding all your travelling memories! </string>
     <string name="notes">Notes</string>
     <string name="wishlist">Wishlist</string>
     <string name="time">Current Date and Time: </string>
